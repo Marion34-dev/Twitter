@@ -13,26 +13,31 @@ As a trainee software engineer
 So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
+
 ```
 As a trainee
 So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
+
 ```
 As a trainee
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+
 ```
 As a trainee
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
+
 ```
 As a trainee
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
+
 ```
 As a trainee
 So that I can avoid others posting messages on Chitter as me
@@ -62,7 +67,8 @@ You will need to type:<br>
 `npm test`to run the tests. <br>
 `npm run coverage` to get a coverage report.
 
-Feel free to contribute and publish a few 'tweets'! 
+Feel free to contribute and publish a few 'tweets'!
 
 ## Here is a snapshot of what it looks like
-![Screenshot 2023-08-17 at 18 55 49](https://github.com/Marion34-dev/chitter-challenge/assets/125993993/59f80d28-5fe0-4f1b-b3e0-808df4d0e62f)
+
+![Alt text](<Screenshot 2023-09-21 at 15.27.28.png>)
