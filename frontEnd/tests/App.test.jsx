@@ -8,8 +8,7 @@ import Peep from '../src/Components/Peep';
 import Footer from '../src/Components/Footer';
 import RoutedMain from '../src/Components/RoutedMain';
 import AddPeep from '../src/Components/AddPeep';
-import RegistrationForm from '../src/Components/Register';
-
+import RegistrationForm from '../src/Components/register';
 
 
 describe('RegistrationForm Component', () => {
@@ -56,7 +55,7 @@ describe('Testing the AddPeep component', () => {
       </Router>
     );
     
-    const peepMessageInput = getByPlaceholderText('Enter your peep here...');
+    const peepMessageInput = getByPlaceholderText('Enter your Tweet here...');
 
     fireEvent.change(peepMessageInput, { target: { value: 'This is a test peep.' } });
     expect(peepMessageInput.value).toBe('This is a test peep.');
@@ -74,9 +73,6 @@ describe('Testing the AddPeep component', () => {
   });
 });
 
-
-
-
 describe('Testing the RoutedMain component', () => {
   it('renders the RoutedMain component without errors', () => {
     const routedMainComponent = <RoutedMain />;
@@ -85,7 +81,7 @@ describe('Testing the RoutedMain component', () => {
 
   it('displays the welcome message', () => {
     const { getByText } = render(<RoutedMain />);
-    const welcomeMessage = getByText('Welcome to Chitter!');
+    const welcomeMessage = getByText('Welcome to Tweet!');
     expect(welcomeMessage).toBeInTheDocument();
   });
 });
@@ -99,7 +95,7 @@ describe('Testing the Footer component', () => {
 
   it('displays the copyright information', () => {
     const { getByText } = render(<Footer />);
-    const copyrightText = getByText('© Chitter 2023');
+    const copyrightText = getByText('© Tweet 2023');
     expect(copyrightText).toBeInTheDocument();
   });
 });
@@ -158,7 +154,7 @@ describe('Testing the Header component', () => {
 
   it('displays "Post a Peep" link when a user is logged in', () => {
     const { getByText } = renderWithRouter(mockUser);
-    const postPeepLink = getByText('Post a Peep');
+    const postPeepLink = getByText('Post a Tweet');
     expect(postPeepLink).toBeInTheDocument();
   });
 
