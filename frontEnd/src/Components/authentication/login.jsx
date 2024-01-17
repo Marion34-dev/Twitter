@@ -9,7 +9,9 @@ const Login = ({ user: { loginUser, setLoginUser } }) => {
         password: ''
     });
 
-    const handleChange = e => {
+    const [message, setMessage] = useState(null);
+
+    const handleChange = (e) => {
         const { name, value } = e.target;
         setUser({
             ...user,
@@ -17,22 +19,34 @@ const Login = ({ user: { loginUser, setLoginUser } }) => {
         });
     };
 
+    const displayMessage = (msg) => {
+        setMessage(msg);
+        setTimeout(() => {
+            setMessage(null);
+        }, 5000); 
+    };
+
     const login = async (e) => {
         e.preventDefault();
 
-        // const res = await axios.post('http://localhost:3000/login/', user);
-        const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/login`, user);
+        try {
+            const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/login`, user);
+            displayMessage(res.data.message);
 
-        alert(res.data.message);
-
-        setUser({ email: '', password: '' });
-        setLoginUser(res.data.user);
+            setUser({ email: '', password: '' });
+            setLoginUser(res.data.user);
+        } catch (error) {
+            displayMessage('An error occurred during login.');
+        }
     };
 
     return (
         <>
             {loginUser && <Navigate to="/" />}
             <h1> Log in your account</h1>
+
+            {message && <div className="message">{message}</div>}
+
             <form onSubmit={login}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email: </label>
@@ -56,7 +70,9 @@ const Login = ({ user: { loginUser, setLoginUser } }) => {
                         onChange={handleChange}
                     />
                 </div> 
-                <button id="login-button" type="submit">Login</button> 
+                <button id="login-button" type="submit">
+                    Login
+                </button>
             </form>
             <br />
             <Link to="/register">

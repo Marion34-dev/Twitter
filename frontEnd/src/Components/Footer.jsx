@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="footer">
-      © Chitter 2023
+      © Tweet 2023
     </footer>
   );
 }

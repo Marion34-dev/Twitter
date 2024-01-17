@@ -1,5 +1,6 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { useState } from "react"
 import PropTypes from "prop-types";
 import axios from 'axios';
 import PeepModel from "./utils/Peep.model.js";
@@ -7,47 +8,56 @@ import PeepModel from "./utils/Peep.model.js";
 const AddPeep = ({ user: { name, username } }) => {
     const [createPeep, setCreatePeep] = useState('');
     const [addContent, setAddContent] = useState('');
+    const [tempMessage, setTempMessage] = useState('');
+
+    const navigate = useNavigate(); // Import useNavigate from react-router-dom
 
     const makeNewPeep = async (e) => {
         e.preventDefault();
         const peepDateCreated = new Date().toISOString();
 
-        const newPeep = new PeepModel(createPeep, peepDateCreated, name, username)
-        console.log(newPeep)
+        const newPeep = new PeepModel(createPeep, peepDateCreated, name, username);
+
         if (Object.keys(newPeep).length) {
             try {
-                // const res = await axios.post('http://localhost:3000/add', newPeep)
                 const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/add`, newPeep);
 
                 setAddContent(res.data.message);
                 setCreatePeep('');
-                window.alert("Your peep has been posted!");
+                setTempMessage("Thanks, your Tweet has been posted!");
 
+                setTimeout(() => {
+                    setTempMessage('');
+                    navigate(`/dashboard/${username}`);
+                }, 5000); 
 
             } catch (error) {
-                 window.alert('Request unsuccessful, please type some text and try again');
+                setTempMessage('Request unsuccessful, please try again');
             }
         }
     }
 
     return (
-            <div id="postComponent">
-                <div>
-                    <h1> Time to post! </h1>
-                    <h2 className="name">From: {name} ✅</h2>
-                    <h3 className="username">{username}</h3>
-                    <form onSubmit={makeNewPeep}>
-                    <textarea className="largerTextarea"
-                            onChange={e => setCreatePeep(e.target.value)}
-                            placeholder="Enter your peep here..."
-                            value={createPeep} ></textarea>
-                        
-                        {addContent && <small>{addContent}</small>}
-                        <br />
-                            <button id="newPeep-button" type="submit"> Publish! </button>
-                    </form>
-                </div>
+        <div id="postComponent">
+            <div>
+                <h1> Time to post! </h1>
+                <h3 className="name">From: {name} ✅</h3>
+                <h4 className="username">Username: {username}</h4>
+                <form onSubmit={makeNewPeep}>
+                    <textarea
+                        className="smallerTextarea"
+                        onChange={e => setCreatePeep(e.target.value)}
+                        placeholder="Enter your Tweet here..."
+                        value={createPeep}
+                    ></textarea>
+
+                    {addContent && <small>{addContent}</small>}
+                    <br />
+                    <button id="newPeep-button" type="submit"> Publish! </button>
+                </form>
             </div>
+                {tempMessage && <small>{tempMessage}</small>}
+        </div>
     )
 }
 

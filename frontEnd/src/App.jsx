@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import RoutedMain from "./Components/RoutedMain.jsx";
 import Login from './Components/authentication/login.jsx';
 import AddPeep from '../src/Components/AddPeep.jsx'
-import Register from '../src/Components/Register.jsx';
+import Register from '../src/Components/register.jsx';
 
 
 const App = () => {

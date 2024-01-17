@@ -16,7 +16,7 @@ const Peep = ({ body }) => {
                         <h2>{peepMessage}</h2>
                     </>
                 ) : (
-                    <p>Sorry, there are no peeps available. How about posting one now?</p>
+                    <p>Sorry, there are no Tweets available. How about posting one now?</p>
                 )}
             </div>
         </div>

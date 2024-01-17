@@ -10,8 +10,6 @@ const Dashboard = () => {
     useEffect(() => {
         const getPeeps = async () => {
             try {
-                // const response = await mockAxios.get(); // mock Axios function                
-                // const response = await axios.get(`http://${import.meta.env.VITE_PEEPSURL}/peeps`);
                 const response = await axios.get(`http://${import.meta.env.VITE_PEEPSURL}`);
                 setPeepsArray(response.data);
 
