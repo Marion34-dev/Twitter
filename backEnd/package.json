@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "NODE_ENV=test c8 mocha --timeout 10000 --exit",
-    "start": "NODE_ENV=development nodemon server",
+    "dev": "NODE_ENV=development nodemon server",
+    "start": "NODE_ENV=development node index",
     "start-prod": "NODE_ENV=production nodemon src/server",
     "test-win": "SET NODE_ENV=test&&mocha --timeout 10000 --exit",
     "start-win": "SET NODE_ENV=development&&nodemon src/server",
