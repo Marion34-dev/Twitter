@@ -10,7 +10,10 @@ const Dashboard = () => {
     useEffect(() => {
         const getPeeps = async () => {
             try {
-                const response = await axios.get(`http://${import.meta.env.VITE_PEEPSURL}`);
+          //      const response = await axios.get(`http://localhost:8080/`);
+
+                //    
+                const response = await axios.get(`${import.meta.env.VITE_APP_API_URL}`);
                 setPeepsArray(response.data);
 
             } catch (error) {
