@@ -20,7 +20,8 @@ const AddPeep = ({ user: { name, username } }) => {
 
         if (Object.keys(newPeep).length) {
             try {
-                const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/add`, newPeep);
+              //  const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/add`, newPeep);
+                const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/add`, newPeep);
 
                 setAddContent(res.data.message);
                 setCreatePeep('');

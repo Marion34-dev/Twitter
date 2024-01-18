@@ -21,10 +21,8 @@ const RegistrationForm = () => {
 
     if (name && email && username && password) {
       try {
-        const res = await axios.post(
-          `http://${import.meta.env.VITE_PEEPSURL}/register`,
-          newUser
-        );
+      //  const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/register`,newUser);
+        const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/register`,newUser);
 
         setNewUser({
           name: '',

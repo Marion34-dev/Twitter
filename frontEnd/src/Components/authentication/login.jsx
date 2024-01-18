@@ -30,7 +30,9 @@ const Login = ({ user: { loginUser, setLoginUser } }) => {
         e.preventDefault();
 
         try {
-            const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/login`, user);
+      //      const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/login`, user);
+            const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/login`, user);
+
             displayMessage(res.data.message);
 
             setUser({ email: '', password: '' });
