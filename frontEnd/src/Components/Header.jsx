@@ -20,7 +20,7 @@ const Header = ({ user: { loginUser, setLoginUser } }) => {
             <nav>
 <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
                      <div className="container-fluid"> 
-                        <h2 style={{ color: 'white' }}> © Tweet  </h2>
+                        <h2 style={{ color: '#ffe4c0' }}> © Tweet  </h2>
                                 {!loginUser && <Link className="navbar-brand" to="/"> Home </Link>}
 
                                 {loginUser && <Link className="navbar-brand" to="/"> Home </Link>}
