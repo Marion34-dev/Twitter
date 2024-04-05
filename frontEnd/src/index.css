@@ -110,11 +110,6 @@ h1 {
   width: 350px;
 }
 
-
-
-
-
-/* Add some fun styles to the navbar */
 .navbar {
   background-color: #333;
 }
@@ -132,7 +127,6 @@ h1 {
 
 .logout-message {
   background-color: #ff6666;
-  /* Fun red color */
   color: white;
   font-size: 14px;
   padding: 10px;
@@ -140,4 +134,49 @@ h1 {
   border-radius: 5px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.bouncing-ball {
+  width: 20px;
+  height: 20px;
+  background-color: #ff00bbe4;
+  border-radius: 50%;
+  /* Make it round */
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  animation: moveAround 6s infinite linear;
+}
+
+@keyframes moveAround {
+  0% {
+    bottom: calc(50% - 10px);
+    left: calc(50% - 10px);
+    transform: translateX(-50%) translateY(-50%) rotate(0deg);
+  }
+
+  25% {
+    bottom: calc(50% - 10px);
+    left: 0;
+    transform: translateX(-50%) translateY(-50%) rotate(180deg);
+  }
+
+  50% {
+    bottom: calc(50% - 10px);
+    left: 100%;
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
+
+  75% {
+    bottom: calc(50% - 10px);
+    left: 0;
+    transform: translateX(-50%) translateY(-50%) rotate(180deg);
+  }
+
+  100% {
+    bottom: calc(50% - 10px);
+    left: calc(50% - 10px);
+    transform: translateX(-50%) translateY(-50%) rotate(360deg);
+  }
 }
