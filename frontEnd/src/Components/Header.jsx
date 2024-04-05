@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import '../index.css';
 
 const Header = ({ user: { loginUser, setLoginUser } }) => {
     const [logoutMessage, setLogoutMessage] = useState(null);
@@ -17,7 +18,7 @@ const Header = ({ user: { loginUser, setLoginUser } }) => {
     return (
         <> 
             <nav>
-<nav style={{ backgroundColor: '#333' }} className="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav className="navbar navbar-expand-lg navbar-dark fixed-top">
                      <div className="container-fluid"> 
                         <h2 style={{ color: 'white' }}> © Tweet  </h2>
                                 {!loginUser && <Link className="navbar-brand" to="/"> Home </Link>}

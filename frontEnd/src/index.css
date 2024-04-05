@@ -109,3 +109,35 @@ h1 {
   height: 150px;
   width: 350px;
 }
+
+
+
+
+
+/* Add some fun styles to the navbar */
+.navbar {
+  background-color: #333;
+}
+
+.navbar-brand {
+  color: white;
+  font-size: 18px;
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.4);
+}
+
+.logout-message {
+  background-color: #ff6666;
+  /* Fun red color */
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
