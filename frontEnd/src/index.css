@@ -226,3 +226,67 @@ h1 {
     transform: translateX(-50%) translateY(-50%) rotate(360deg);
   }
 }
+
+
+
+
+
+#postComponent {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#postComponent h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.username {
+  font-size: 16px;
+  color: #666;
+}
+
+#postComponent form {
+  margin-top: 20px;
+}
+
+#postComponent .smallerTextarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+#postComponent button#newPeep-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#postComponent button#newPeep-button:hover {
+  background-color: #0056b3;
+}
+
+#postComponent small {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+}

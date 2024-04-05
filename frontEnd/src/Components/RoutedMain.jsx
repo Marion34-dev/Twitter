@@ -4,7 +4,7 @@ const RoutedMain = () => {
     return (
         <>
             <h1> Welcome to Tweet!</h1>
-            <h2>This is a safe platform, please post responsibly.</h2>
+            <h4>This is a safe platform, please post responsibly.</h4>
             <br></br>
                     <Dashboard />
         </>

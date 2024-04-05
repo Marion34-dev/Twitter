@@ -41,16 +41,14 @@ const AddPeep = ({ user: { name, username } }) => {
     return (
         <div id="postComponent">
             <div>
-                <h1> Time to post! </h1>
-                <h3 className="name">From: {name} ✅</h3>
-                <h4 className="username">Username: {username}</h4>
+                <h3> {name}, it&apos;s time to post! </h3>
+
                 <form onSubmit={makeNewPeep}>
                     <textarea
                         className="smallerTextarea"
                         onChange={e => setCreatePeep(e.target.value)}
-                        placeholder="Enter your Tweet here..."
-                        value={createPeep}
-                    ></textarea>
+                        placeholder="What's on your mind?"
+                        value={createPeep}></textarea>
 
                     {addContent && <small>{addContent}</small>}
                     <br />
