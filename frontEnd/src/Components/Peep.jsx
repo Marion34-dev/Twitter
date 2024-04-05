@@ -6,14 +6,16 @@ const Peep = ({ body }) => {
     const formattedDate = formatDate(peepDateCreated);
 
     return (
-        <div className="card">
-            <div className="container">
+        <div className="tweet-card">
+            <div className="tweet-content">
                 {body ? (
                     <>
-                        <h4 className='PeepName'>{peepCreatedBy}</h4>
-                        <h6 className='username'>@{username}</h6>
-                        <h6>{formattedDate}</h6>
-                        <h2>{peepMessage}</h2>
+                        <h2 className='tweet-message'>{peepMessage}</h2>
+                        <div className="tweet-info">
+                            <h4 className='tweet-creator'>{peepCreatedBy}</h4>
+                            <h6 className='tweet-username'>@{username}</h6>
+                            <h6 className='tweet-date'>{formattedDate}</h6>
+                        </div>
                     </>
                 ) : (
                     <p>Sorry, there are no Tweets available. How about posting one now?</p>
