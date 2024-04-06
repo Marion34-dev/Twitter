@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/Components/Register.jsx</title>
+    <title>Code coverage report for src/Components/register.jsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/Components</a> Register.jsx</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/Components</a> register.jsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.42% </span>
+                <span class="strong">5.22% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>7/129</span>
+                <span class='fraction'>7/134</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">5.42% </span>
+                <span class="strong">5.22% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>7/129</span>
+                <span class='fraction'>7/134</span>
             </div>
         
             
@@ -192,7 +192,12 @@
 <a name='L127'></a><a href='#L127'>127</a>
 <a name='L128'></a><a href='#L128'>128</a>
 <a name='L129'></a><a href='#L129'>129</a>
-<a name='L130'></a><a href='#L130'>130</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -319,10 +324,15 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState } from 'react';
-import { Link } from 'react-router-dom';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 &nbsp;
 const RegistrationForm = <span class="fstat-no" title="function not covered" >() =&gt; {</span>
@@ -333,65 +343,68 @@ const RegistrationForm = <span class="fstat-no" title="function not covered" >()
 <span class="cstat-no" title="statement not covered" >        password: ''</span>
 <span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const [submitted, setSubmitted] = useState(false);</span>
+<span class="cstat-no" title="statement not covered" >    const [successMessage, setSuccessMessage] = useState(null);</span>
+<span class="cstat-no" title="statement not covered" >    const [redirectToLogin, setRedirectToLogin] = useState(false);</span>
+<span class="cstat-no" title="statement not covered" >    const [errorMessage, setErrorMessage] = useState(null);</span>
+<span class="cstat-no" title="statement not covered" >    const navigate = useNavigate();</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const handleSubmit = async (e) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        e.preventDefault()</span>
-<span class="cstat-no" title="statement not covered" >        const { name, email, username, password } = newUser;</span>
-<span class="cstat-no" title="statement not covered" >        </span>
-<span class="cstat-no" title="statement not covered" >        if (name &amp;&amp; email &amp;&amp; username &amp;&amp; password) {</span>
-<span class="cstat-no" title="statement not covered" >            try {</span>
-<span class="cstat-no" title="statement not covered" >                // const res = await axios.post('http://localhost:3000/register', newUser);</span>
-<span class="cstat-no" title="statement not covered" >                const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/register`, newUser);</span>
+<span class="cstat-no" title="statement not covered" >  const handleSubmit = async (e) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    e.preventDefault();</span>
+<span class="cstat-no" title="statement not covered" >    const { name, email, username, password } = newUser;</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >                setNewUser({</span>
-<span class="cstat-no" title="statement not covered" >                    name: '',</span>
-<span class="cstat-no" title="statement not covered" >                    email: '',</span>
-<span class="cstat-no" title="statement not covered" >                    username: '',</span>
-<span class="cstat-no" title="statement not covered" >                    password: '',</span>
-<span class="cstat-no" title="statement not covered" >                });</span>
+<span class="cstat-no" title="statement not covered" >    if (name &amp;&amp; email &amp;&amp; username &amp;&amp; password) {</span>
+<span class="cstat-no" title="statement not covered" >      try {</span>
+<span class="cstat-no" title="statement not covered" >      //  const res = await axios.post(`http://${import.meta.env.VITE_PEEPSURL}/register`,newUser);</span>
+<span class="cstat-no" title="statement not covered" >        const res = await axios.post(`${import.meta.env.VITE_APP_API_URL}/register`,newUser);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >                if (res.data.message === 'Registration successful') {</span>
-<span class="cstat-no" title="statement not covered" >                    setSubmitted(true); </span>
-<span class="cstat-no" title="statement not covered" >                    window.alert("Successfully registered! You can now log in");</span>
-<span class="cstat-no" title="statement not covered" >                    </span>
-<span class="cstat-no" title="statement not covered" >                } else {</span>
-<span class="cstat-no" title="statement not covered" >                    setSubmitted(res.data.message);</span>
-<span class="cstat-no" title="statement not covered" >                }</span>
-<span class="cstat-no" title="statement not covered" >            } </span>
-<span class="cstat-no" title="statement not covered" >            </span>
-<span class="cstat-no" title="statement not covered" >        catch (error) {</span>
-<span class="cstat-no" title="statement not covered" >            console.log(error)</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >       }                 </span>
-<span class="cstat-no" title="statement not covered" >    };</span>
-<span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const handleChange = e =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        const { name, value } = e.target;</span>
 <span class="cstat-no" title="statement not covered" >        setNewUser({</span>
-<span class="cstat-no" title="statement not covered" >            ...newUser,</span>
-<span class="cstat-no" title="statement not covered" >            [name]: value</span>
+<span class="cstat-no" title="statement not covered" >          name: '',</span>
+<span class="cstat-no" title="statement not covered" >          email: '',</span>
+<span class="cstat-no" title="statement not covered" >          username: '',</span>
+<span class="cstat-no" title="statement not covered" >          password: '',</span>
 <span class="cstat-no" title="statement not covered" >        });</span>
-<span class="cstat-no" title="statement not covered" >    };</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if (submitted === "It seems you already have an account with us.") {</span>
-<span class="cstat-no" title="statement not covered" >        return (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;h2&gt;{submitted}&lt;/h2&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;p&gt; You can login instead! &lt;Link to="/login"&gt; Login &lt;/Link&gt;&lt;/p&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/&gt;</span>
-<span class="cstat-no" title="statement not covered" >        );</span>
+<span class="cstat-no" title="statement not covered" >        if (res.data.message === 'Registration successful') {</span>
+<span class="cstat-no" title="statement not covered" >          setSuccessMessage('Successfully registered! You can now log in');</span>
+<span class="cstat-no" title="statement not covered" >          setRedirectToLogin(true);</span>
+<span class="cstat-no" title="statement not covered" >        } else {</span>
+<span class="cstat-no" title="statement not covered" >          setErrorMessage(res.data.message);</span>
+<span class="cstat-no" title="statement not covered" >        }</span>
+<span class="cstat-no" title="statement not covered" >      } catch (error) {</span>
+<span class="cstat-no" title="statement not covered" >        console.log(error);</span>
+<span class="cstat-no" title="statement not covered" >        setErrorMessage('An error occurred during registration');</span>
+<span class="cstat-no" title="statement not covered" >      }</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" >    </span>
+<span class="cstat-no" title="statement not covered" >  // Redirect to login when redirectToLogin is true</span>
+<span class="cstat-no" title="statement not covered" >    useEffect(() =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    if (redirectToLogin) {</span>
+<span class="cstat-no" title="statement not covered" >      navigate('/login');</span>
+<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >  }, [redirectToLogin, navigate]);</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if (submitted === "Sorry, this username already exists.") {</span>
-<span class="cstat-no" title="statement not covered" >        return (</span>
-<span class="cstat-no" title="statement not covered" >            &lt;&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;h2&gt;{submitted}&lt;/h2&gt;</span>
-<span class="cstat-no" title="statement not covered" >                &lt;h3&gt; Please use a different username. &lt;/h3&gt;</span>
-<span class="cstat-no" title="statement not covered" >                 &lt;h3&gt; Or log in if you already have an account: &lt;Link to="/login"&gt; Login &lt;/Link&gt;&lt;/h3&gt;</span>
-<span class="cstat-no" title="statement not covered" >            &lt;/&gt;</span>
-<span class="cstat-no" title="statement not covered" >        );</span>
-<span class="cstat-no" title="statement not covered" >    }</span>
+<span class="cstat-no" title="statement not covered" >    const handleChange = (e) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const { name, value } = e.target;</span>
+<span class="cstat-no" title="statement not covered" >    setNewUser({</span>
+<span class="cstat-no" title="statement not covered" >      ...newUser,</span>
+<span class="cstat-no" title="statement not covered" >      [name]: value,</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" >  };</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >  if (successMessage) {</span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+<span class="cstat-no" title="statement not covered" >      &lt;&gt;</span>
+<span class="cstat-no" title="statement not covered" >        &lt;h2&gt;{successMessage}&lt;/h2&gt;</span>
+<span class="cstat-no" title="statement not covered" >        {redirectToLogin &amp;&amp; (</span>
+<span class="cstat-no" title="statement not covered" >          &lt;p&gt;</span>
+<span class="cstat-no" title="statement not covered" >            You will be redirected to login shortly. If not, click{' '}</span>
+<span class="cstat-no" title="statement not covered" >            &lt;Link to="/login"&gt;here&lt;/Link&gt;.</span>
+<span class="cstat-no" title="statement not covered" >          &lt;/p&gt;</span>
+<span class="cstat-no" title="statement not covered" >        )}</span>
+<span class="cstat-no" title="statement not covered" >      &lt;/&gt;</span>
+<span class="cstat-no" title="statement not covered" >    );</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
 <span class="cstat-no" title="statement not covered" >        &lt;&gt;</span>
@@ -443,6 +456,8 @@ const RegistrationForm = <span class="fstat-no" title="function not covered" >()
 <span class="cstat-no" title="statement not covered" >                &lt;/div&gt;</span>
 <span class="cstat-no" title="statement not covered" >                &lt;button id="register-button" type="submit"&gt;Register&lt;/button&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;/form&gt;</span>
+<span class="cstat-no" title="statement not covered" >              {errorMessage &amp;&amp; &lt;p&gt;Error: {errorMessage}&lt;/p&gt;}</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >            &lt;br&gt;&lt;/br&gt;</span>
 <span class="cstat-no" title="statement not covered" >            &lt;p&gt; Already have an account? &lt;Link to="/login"&gt; Login! &lt;/Link&gt;&lt;/p&gt;</span>
 <span class="cstat-no" title="statement not covered" >        &lt;/&gt;</span>
@@ -457,7 +472,7 @@ export default RegistrationForm;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-21T15:35:55.494Z
+                at 2024-04-06T11:37:17.817Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

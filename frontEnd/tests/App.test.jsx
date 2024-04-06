@@ -55,7 +55,7 @@ describe('Testing the AddPeep component', () => {
       </Router>
     );
     
-    const peepMessageInput = getByPlaceholderText('Enter your Tweet here...');
+    const peepMessageInput = getByPlaceholderText('What\'s on your mind?');
 
     fireEvent.change(peepMessageInput, { target: { value: 'This is a test peep.' } });
     expect(peepMessageInput.value).toBe('This is a test peep.');
@@ -95,7 +95,7 @@ describe('Testing the Footer component', () => {
 
   it('displays the copyright information', () => {
     const { getByText } = render(<Footer />);
-    const copyrightText = getByText('© Tweet 2023');
+    const copyrightText = getByText('© Tweet 2024');
     expect(copyrightText).toBeInTheDocument();
   });
 });
