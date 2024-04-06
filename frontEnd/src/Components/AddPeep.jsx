@@ -25,7 +25,7 @@ const AddPeep = ({ user: { name, username } }) => {
 
                 setAddContent(res.data.message);
                 setCreatePeep('');
-                setTempMessage("Thanks, your Tweet has been posted!");
+                setTempMessage("Thanks for your Tweet!");
 
                 setTimeout(() => {
                     setTempMessage('');
