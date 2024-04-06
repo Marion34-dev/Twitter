@@ -8,6 +8,8 @@ import { allPeeps } from "./routes/allPeeps.route.js";
 import { addPeep } from "./routes/addPeep.route.js";
 // import User from './models/user.model.js';
 import session from 'express-session';
+import crypto from 'crypto'; // generating random strings
+
 
 config({ path: `.env.${process.env.NODE_ENV}` });
 
@@ -24,16 +26,18 @@ const main = async () => {  // connects to DB
 
 main().catch((err) => console.log(err));  // error handling if connection unsuccessful
 
-// Middleware
-app.use(express.json());
-app.use(cors());
+// Express middleware
+app.use(express.json()); // configuring it to parse incoming requests with JSON payloads
+app.use(cors()); // allowing server to respond to requests from different origins
 
 // Configure the session middleware
+const secretKey = crypto.randomBytes(32).toString('hex'); // 32-byte random string encoded in hexadecimal format
+
 app.use(
   session({
-    secret: "key",
-    resave: false,
-    saveUninitialized: false,
+    secret: secretKey, // session ID cookie
+    resave: false,  // only saving when asked, not on each request
+    saveUninitialized: false, // not saving each new unmodified sessions
   })
 );
 

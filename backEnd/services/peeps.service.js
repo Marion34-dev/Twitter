@@ -2,7 +2,6 @@ import Peep from '../models/peep.model.js';
 
 export const addPeepService = async peep => {
     try {
-        // const newPeep = new Peep(newPeepData);
        const newPeep = new Peep(peep);
 
         return await newPeep.save();
@@ -29,14 +28,3 @@ export const getPeepsService = async () => {
     }
 }
 
-export const updatePeepService = async (peep, id) => {
-    const updatedPeep = { ...peep };
-    delete updatedPeep._id;
-
-    try {
-        return await Peep.findByIdAndUpdate({ _id: id }, updatedPeep);
-    }
-    catch (e) {
-        throw e;
-    }
-}

@@ -3,10 +3,8 @@ import chai from 'chai';
 import { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import server from '../index.js';
-// import testData from './testData/samplePeeps.json' assert { type: "json" };
-// const testDataArray = testData.peeps;
 import User from '../models/user.model.js';
-import { addPeepService, getPeepService, getPeepsService, updatePeepService } from '../services/peeps.service.js'; 
+import { addPeepService, getPeepService, getPeepsService } from '../services/peeps.service.js'; 
 
 chai.use(chaiHttp);
 
@@ -14,31 +12,12 @@ describe(`Testing requests on the database`, () => {
     // Servers are stateless so we can create and keep it open here and make requests to testServer in tests
     const testServer = chai.request(server).keepOpen();
 
-    // beforeEach(async () => {
-    //     try {
-    //         await User.deleteMany();
-    //         await Peep.deleteMany();
-    //         console.log(`Test database has been cleared`);
-    //     } catch (error) {
-    //         console.log(`Error clearing test database`);
-    //         throw new Error();
-    //     };
-    //     try {
-    //         await Peep.insertMany(testDataArray);
-    //         console.log(`Database populated with test peeps`);
-    //     } catch (error) {
-    //         console.log(`Error inserting test peeps`);
-    //         throw new Error();
-    //     };
-    // });
-
     describe(`Testing the /allPeeps route GET request`, () => {
         it(`should return all of the peeps as an array`, async () => {
             const res = await testServer.get(`/`).send();
 
             expect(res).to.have.status(200);
             expect(res.body).to.be.an(`array`);
-            // expect(res.body.length).to.equal(testDataArray.length);
         });
     });
 
@@ -283,22 +262,7 @@ describe(`Testing requests on the database`, () => {
             });
         });
 
-        describe('Testing the updatePeepService function', () => {  
-            it('should throw an error when updating a peep with invalid ID', async () => {
-                const invalidPeepId = 'invalid-id';
-                const updatedPeepData = {
-                    peepMessage: 'Updated test peep'
-                };
-
-                try {
-                    await updatePeepService(updatedPeepData, invalidPeepId);
-                    // If no error is thrown, the test should fail
-                    throw new Error('Test should have thrown an error');
-                } catch (error) {
-                    expect(error).to.exist;
-                }
-            });
-        });
+        
     });
 
         describe('Testing the allPeeps controller', () => {
