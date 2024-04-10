@@ -23,15 +23,15 @@ describe(`Testing requests on the database`, () => {
 
     describe('Testing the functionalities of the /register and /login routes', () => {
         it('should successfully register a user', async () => {
-        const res = await chai.request(server).post('/register').send({ name: 'User123', email: 'test123@example.com', password: 'testpassword', username: 'User123' });
+        const res = await chai.request(server).post('/register').send({ name: 'User345', email: 'test345@example.com', password: 'testpassword', username: 'User345' });
 
         expect(res).to.have.status(200);
         expect(res.body).to.have.property('message', 'Registration successful');
 
-        const userToDelete = await User.findOne({ email: 'test123@example.com' });
+        const userToDelete = await User.findOne({ email: 'test345@example.com' });
 
         expect(userToDelete).to.exist;
-        await User.deleteOne({ email: 'test123@example.com' });
+        await User.deleteOne({ email: 'test345@example.com' });
 });
 
 
@@ -196,7 +196,7 @@ describe(`Testing requests on the database`, () => {
     });
 
     it('should not allow login without providing password', async () => {
-        const loginRes = await chai.request(server).post('/login').send({ email: 'test@example.com' });
+        const loginRes = await chai.request(server).post('/login').send({ email: 'test@example.com'});
 
         expect(loginRes).to.have.status(500);
         expect(loginRes.body).to.have.property('message', 'Error logging in');
