@@ -1,10 +1,12 @@
-# Welcome to the Chitter Challenge!
+# Welcome to my Tweet app program!
 
-This JavaScript program is a small Twitter clone that will display all 'tweets'. Once logged in, the user will be able to post a message to the public wall.
+## https://tweet-frontend.onrender.com/
 
-The back-end part of the application was built using Express. I have used Mocha and Chai/Chai-http for testing and C8 for coverage. <br>
-I have chosen MongoDB Atlas for my database and Mongoose to connect my Express app to the database. <br>
-The front-end part of the application was built using Vite and React. Vitest is used for testing, and V8 for Coverage.
+This MERN project is a small X (formerly-known as Twitter) clone that will display all 'Tweets' on the dashboard. Once logged in, the user will be able to post a 'Tweet' to the public wall.
+
+The back-end part of the application was built using Node and an Express server. I have used Mocha and Chai/Chai-http for testing and C8 for coverage. <br>
+I have chosen MongoDB Atlas to store the data and Mongoose to connect to the database. <br>
+The front-end part of the application was built using React through Vite. Vitest has been used for testing, and V8 for Coverage.
 
 ### User stories
 
@@ -13,31 +15,26 @@ As a trainee software engineer
 So that I can let people know what I am doing
 I want to post a message (peep) to chitter
 ```
-
 ```
 As a trainee
 So that I can see what others are saying
 I want to see all peeps in reverse chronological order
 ```
-
 ```
 As a trainee
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
-
 ```
 As a trainee
 So that I can post messages on Chitter as me
 I want to sign up for Chitter
 ```
-
 ```
 As a trainee
 So that only I can post messages on Chitter as me
 I want to log in to Chitter
 ```
-
 ```
 As a trainee
 So that I can avoid others posting messages on Chitter as me
@@ -67,8 +64,4 @@ You will need to type:<br>
 `npm test`to run the tests. <br>
 `npm run coverage` to get a coverage report.
 
-Feel free to contribute and publish a few 'tweets'!
-
-## Here is a snapshot of what it looks like
-
-![Alt text](<Screenshot 2023-09-21 at 15.27.28.png>)
+## Feel free to contribute and publish a few 'Tweets'!
